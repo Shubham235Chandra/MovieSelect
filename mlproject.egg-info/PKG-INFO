@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: mlproject
+Version: 0.0.1
+Author: Krish
+Author-email: krishnaik06@gmail.com
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: seaborn
+Requires-Dist: matplotlib
+Requires-Dist: scikit-learn

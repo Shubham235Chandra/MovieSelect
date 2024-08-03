@@ -1,0 +1,7 @@
+README.md
+setup.py
+MovieSelect.egg-info/PKG-INFO
+MovieSelect.egg-info/SOURCES.txt
+MovieSelect.egg-info/dependency_links.txt
+MovieSelect.egg-info/requires.txt
+MovieSelect.egg-info/top_level.txt

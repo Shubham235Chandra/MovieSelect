@@ -1,0 +1,13 @@
+prefix=D:/ESDS/Practice/Krish Nair/Movie Recommendation System/vmov/Library
+exec_prefix=D:/ESDS/Practice/Krish Nair/Movie Recommendation System/vmov/Library
+libdir=D:/ESDS/Practice/Krish Nair/Movie Recommendation System/vmov/Library/lib
+sharedlibdir=D:/ESDS/Practice/Krish Nair/Movie Recommendation System/vmov/Library/lib
+includedir=D:/ESDS/Practice/Krish Nair/Movie Recommendation System/vmov/Library/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
