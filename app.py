@@ -165,7 +165,7 @@ st.sidebar.markdown(
 )
 num_recommendations = st.sidebar.number_input("Number of Recommendations", min_value=12, max_value=51, value=12)
 sort_by_rating = st.sidebar.radio("Sort by IMDB Rating", ("None", "Ascending", "Descending"))
-release_category = st.sidebar.selectbox("Generation", ["All", "New", "Old", "Classic"])
+release_category = st.sidebar.selectbox("Movie Generation", ["All", "New", "Old", "Classic"])
 sort_by_revenue = st.sidebar.radio("Sort by Revenue", ("None", "Ascending", "Descending"))
 
 # Check if the 'Certificate' column exists in the dataframe
