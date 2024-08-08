@@ -3,4 +3,12 @@ numpy
 seaborn
 matplotlib
 scikit-learn
+kaggle
+decorator
+streamlit
+google.generativeai
+python-dotenv
+IMDbPY
+textblob
+nltk
 -e .
