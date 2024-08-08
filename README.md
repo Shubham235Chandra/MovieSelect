@@ -3,6 +3,8 @@
 
 Welcome to "Movie Select - Discover Your Movie Mojo"! This Streamlit application helps you discover new movies based on your favorite selections. Customize your recommendations by various filters and enjoy a tailored movie-watching experience.
 
+- **Check out the Application: ** [Movie Select](https://huggingface.co/spaces/Shubham235/MovieSelect)
+
 ## Features
 
 - **Personalized Recommendations:** Select your favorite movie and get personalized recommendations.
