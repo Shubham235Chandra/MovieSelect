@@ -96,6 +96,14 @@ st.markdown(
         background-color: rgba(0, 0, 0, 0.5);
         color: #FFFFFF;
     }}
+    .vertical-divider {{
+        border-left: 2px solid white;
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        margin-left: -3px;
+        top: 0;
+    }}
     </style>
     """,
     unsafe_allow_html=True
@@ -157,7 +165,7 @@ st.sidebar.markdown(
 )
 num_recommendations = st.sidebar.number_input("Number of Recommendations", min_value=12, max_value=51, value=12)
 sort_by_rating = st.sidebar.radio("Sort by IMDB Rating", ("None", "Ascending", "Descending"))
-release_category = st.sidebar.selectbox("Release Category", ["All", "New", "Old", "Classic"])
+release_category = st.sidebar.selectbox("Generation", ["All", "New", "Old", "Classic"])
 sort_by_revenue = st.sidebar.radio("Sort by Revenue", ("None", "Ascending", "Descending"))
 
 # Check if the 'Certificate' column exists in the dataframe
@@ -178,12 +186,15 @@ elif release_category == "Classic":
 if certificate != "All":
     filtered_movies_dict = filtered_movies_dict[filtered_movies_dict['Certificate'] == certificate]
 
-# Movie selection box
-st.markdown('<div class="subheader shaded-box">Select your Favorite Movie</div>', unsafe_allow_html=True)
-selected_movie_name = st.selectbox('', filtered_movies_dict['title'].values)
-st.markdown('</div>', unsafe_allow_html=True)
+# Movie selection box and button on the same line
+col1, col2 = st.columns([3, 1])
+with col1:
+    selected_movie_name = st.selectbox('', filtered_movies_dict['title'].values)
+with col2:
+    st.markdown("<br>", unsafe_allow_html=True)  # Add a break to align the button properly
+    show_recommendation = st.button('Show Recommendation', use_container_width=True)
 
-if st.button('Show Recommendation', use_container_width=True):
+if show_recommendation:
     # Get the first set of recommendations
     recommended_movie_names_1, recommended_movie_posters_1 = recommend(
         selected_movie_name, similarity_main_tags, num_recommendations=num_recommendations, sort_by_rating=sort_by_rating, sort_by_revenue=sort_by_revenue
@@ -194,9 +205,7 @@ if st.button('Show Recommendation', use_container_width=True):
         selected_movie_name, similarity_tags, set(recommended_movie_names_1), num_recommendations=num_recommendations, sort_by_rating=sort_by_rating, sort_by_revenue=sort_by_revenue
     )
 
-    st.markdown('<div class="subheader shaded-box">Recommendations</div>', unsafe_allow_html=True)
-
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns([1, 0.1, 1])
 
     with col1:
         st.markdown('<div class="subheader shaded-box">Top Picks for You</div>', unsafe_allow_html=True)
@@ -208,10 +217,13 @@ if st.button('Show Recommendation', use_container_width=True):
                         movie_name = recommended_movie_names_1[i + j]
                         movie_poster = recommended_movie_posters_1[i + j]
                         google_search_url = f"https://www.google.com/search?q={movie_name}+watch+now"
-                        st.markdown(f'<div class="movie-container"><div class="movie-title">{movie_name}</div><a href="{google_search_url}" target="_blank"><img src="{movie_poster}" class="movie-poster"></a></div>', unsafe_allow_html=True)
+                        st.markdown(f'<div class="movie-container"><a href="{google_search_url}" target="_blank"><img src="{movie_poster}" class="movie-poster"></a><div class="movie-title">{movie_name}</div></div>', unsafe_allow_html=True)
             st.markdown("""---""")
 
     with col2:
+        st.markdown('<div class="vertical-divider"></div>', unsafe_allow_html=True)
+
+    with col3:
         st.markdown('<div class="subheader shaded-box">Some Other Suggestions</div>', unsafe_allow_html=True)
         for i in range(0, len(recommended_movie_names_2), 3):
             row = st.columns(3)
@@ -221,5 +233,5 @@ if st.button('Show Recommendation', use_container_width=True):
                         movie_name = recommended_movie_names_2[i + j]
                         movie_poster = recommended_movie_posters_2[i + j]
                         google_search_url = f"https://www.google.com/search?q={movie_name}+watch+now"
-                        st.markdown(f'<div class="movie-container"><div class="movie-title">{movie_name}</div><a href="{google_search_url}" target="_blank"><img src="{movie_poster}" class="movie-poster"></a></div>', unsafe_allow_html=True)
+                        st.markdown(f'<div class="movie-container"><a href="{google_search_url}" target="_blank"><img src="{movie_poster}" class="movie-poster"></a><div class="movie-title">{movie_name}</div></div>', unsafe_allow_html=True)
             st.markdown("""---""")
