@@ -3,7 +3,7 @@
 
 Welcome to "Movie Select - Discover Your Movie Mojo"! This Streamlit application helps you discover new movies based on your favorite selections. Customize your recommendations by various filters and enjoy a tailored movie-watching experience.
 
-- **Check out the Application: ** [Movie Select](https://huggingface.co/spaces/Shubham235/MovieSelect)
+- **Check out the Application:** [Movie Select](https://huggingface.co/spaces/Shubham235/MovieSelect)
 
 ## Features
 
@@ -13,7 +13,7 @@ Welcome to "Movie Select - Discover Your Movie Mojo"! This Streamlit application
 
 ## Dataset
 
-This application uses a fresh dataset created by [Shubham Chandra](https://www.kaggle.com/datasets/shubhamchandra235/imdb-and-tmdb-movie-metadata-big-dataset-1m).
+This application uses a fresh dataset created by [IMDB & TMDB Movie Metadata Big Dataset (over 1M)](https://www.kaggle.com/datasets/shubhamchandra235/imdb-and-tmdb-movie-metadata-big-dataset-1m).
 
 **Title:** IMDB & TMDB Movie Metadata Big Dataset (>1M)
 
