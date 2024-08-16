@@ -34,7 +34,7 @@ Some recommendations are also made based on tags from the sentiment analysis res
 
 1. **Clone the Repository:**
    ```sh
-   git clone https://github.com/your-username/movie-select.git
+   git clone https://github.com/Shubham235Chandra/MovieSelect.git
    cd movie-select
    ```
 
